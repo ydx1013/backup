@@ -1,0 +1,3 @@
+###\:2\.container
+geenmedical.com##app-root:nth-child(2) > app-float-toolbar:last-child > div.float-toolbar-style
+###minime

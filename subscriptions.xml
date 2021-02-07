@@ -62,6 +62,11 @@
     <outline text="Science | Current Table of Contents" title="Science | Current Table of Contents" type="rss" xmlUrl="https://ydxu.herokuapp.com/sciencemag/science/current" htmlUrl="https://science.sciencemag.org/"/>
     <outline text="free for Mac Apps/" title="free for Mac Apps/" type="rss" xmlUrl="https://node2.feed43.com/appshopermac.xml" htmlUrl="https://appshopper.com/mac/all/free"/>
     <outline text="Mac 应用推荐 - Telegram 频道" title="Mac 应用推荐 - Telegram 频道" type="rss" xmlUrl="https://ydxu.herokuapp.com/telegram/channel/MAS_cn" htmlUrl="https://t.me/s/MAS_cn"/>
-    <outline text="异次元软件世界" title="异次元软件世界" type="rss" xmlUrl="https://ydxu.herokuapp.com/iplay/home" htmlUrl="https://www.iplaysoft.com/"/>
+    <outline text="西安交大" title="西安交大" type="rss" xmlUrl="https://ydxu.herokuapp.com/xjtu/gs/tzgg" htmlUrl="https://ydxu.herokuapp.com/xjtu/gs/tzgg"/>
+   <outline text="异次元软件世界" title="异次元软件世界" type="rss" xmlUrl="https://ydxu.herokuapp.com/iplay/home" htmlUrl="https://www.iplaysoft.com/"/>
   </body>
 </opml>
+
+
+
+

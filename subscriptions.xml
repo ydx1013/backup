@@ -5,7 +5,7 @@
   </head>
   <body>
     <outline text="Cell | Latest issue" title="Cell | Latest issue" type="rss" xmlUrl=" https://rsshub.app/cell/cell/current?mode=fulltext&amp;scihub=true" htmlUrl="https://www.cell.com/"/>
-    <outline text="最新限免 / 促销应用" title="最新限免 / 促销应用" type="rss" xmlUrl=" https://rsshub.app/appstore/gofans?filterout_title=%E9%99%8D%E4%BB%B7" htmlUrl="https://gofans.cn/"/>
+    <outline text="康庄大道限免" title="康庄大道限免" type="rss" xmlUrl=" http://feed43.com/kzddxm.xml" htmlUrl="https://gofans.cn/"/>
     <outline text="每日精品限免 / 促销应用" title="每日精品限免 / 促销应用" type="rss" xmlUrl=" https://rsshub.app/appstore/xianmian?filterout_title=%E9%99%8D%E4%BB%B7" htmlUrl="http://app.so/xianmian/"/>
     <outline text="NASA Astronomy Picture of the Day" title="NASA Astronomy Picture of the Day" type="rss" xmlUrl=" https://rsshub.app/nasa/apod" htmlUrl="https://apod.nasa.gov/apod/ap200823.html"/>
     <outline text="复旦大学" title="复旦大学" type="rss" xmlUrl="http://feed43.com/fudjboui.xml" htmlUrl="http://feed43.com/fudjboui.xml"/>
@@ -58,7 +58,6 @@
     <outline text="eLife | Cell Biology" title="eLife | Cell Biology" type="rss" xmlUrl=" https://rsshub.app/elife/cell-biology" htmlUrl="https://elifesciences.org/subjects/cell-biology"/>
     <outline text="PNAS | cell biology" title="PNAS | cell biology" type="rss" xmlUrl=" https://rsshub.app/pnas/cell%20biology" htmlUrl="https://www.pnas.org/content/by/section/cell%20biology"/>
     <outline text="PNAS | immunology" title="PNAS | immunology" type="rss" xmlUrl=" https://rsshub.app/pnas/immunology" htmlUrl="https://www.pnas.org/content/by/section/immunology"/>
-    <outline text="PNAS | neuroscience" title="PNAS | neuroscience" type="rss" xmlUrlction/neuroscience"/>
     <outline text="Science | Current Table of Contents" title="Science | Current Table of Contents" type="rss" xmlUrl=" https://rsshub.app/sciencemag/science/current" htmlUrl="https://science.sciencemag.org/"/>
     <outline text="free for Mac Apps/" title="free for Mac Apps/" type="rss" xmlUrl="https://node2.feed43.com/appshopermac.xml" htmlUrl="https://appshopper.com/mac/all/free"/>
     <outline text="Mac 应用推荐 - Telegram 频道" title="Mac 应用推荐 - Telegram 频道" type="rss" xmlUrl=" https://rsshub.app/telegram/channel/MAS_cn" htmlUrl="https://t.me/s/MAS_cn"/>

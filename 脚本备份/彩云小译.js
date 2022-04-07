@@ -14,8 +14,8 @@
 // @match        https://*.github.com/*
 // @match        http://*.acm.org/*
 // @match        http://*.acs.org/*
-// @match        http://*.baidu.com/*
-// @match        http://*.biomedcentral.com/*
+// @match        https://*.baidu.com/*
+// @match        https://*.biomedcentral.com/*
 // @match        https://*.bmj.com/*
 // @match        http://*.bmj.com/*
 // @match        https://*.geenmedical.com/*

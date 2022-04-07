@@ -46,7 +46,7 @@
         function show_button_baidu () {
 		
             //添加Google搜索按钮
-            $('.s_btn_wr,#s_btn_wr').after('<input type="button" id="google" value="Google搜索" class="btn self-btn bg" style="float:right; font-size:17px; text-align:center; text-decoration:none; width:112px; height:40px; line-height:41px; margin-left:5px;-webkit-appearance:none;-webkit-border-radius:0;border: 0;color:#fff;letter-spacing:1px;background:#4e6ef2;border-radius: 10px;outline:medium;" onmouseover="this.style.background=\'#4e6ef2\'" onmouseout="this.style.background=\'#4e6ef2\'">')
+            $('.s_btn_wr,#s_btn_wr').after('<input type="button" id="google" value="Google搜索" class="btn self-btn bg" style="float:right; font-size:17px; text-align:center; text-decoration:none; width:112px; height:40px; line-height:41px; margin-left:5px;-webkit-appearance:none;-webkit-border-radius:0;border: 0;color:#fff;background:#4e6ef2;border-radius: 10px;outline:medium;" onmouseover="this.style.background=\'#4e6ef2\'" onmouseout="this.style.background=\'#4e6ef2\'">')
             $("#google").click(function(){
             window.open('https://www.google.com/search?&q=' + encodeURIComponent($('#kw').val()));            
             }) // 结束         
@@ -68,7 +68,7 @@
         document.addEventListener ("DOMContentLoaded", show_button_google);
         function show_button_google () {
             var url_baidu = "https://www.baidu.com/s?wd=" + encodeURIComponent($(".gLFyf.gsfi:first").val()) + "&from=TsingScript";
-            $(".RNNXgb:first").append('<div style="display:inline-block; height:100%; width:0px; box-sizing: border-box; border-radius:10px;"><button id="google++" type="button" style="height:100%; width:100%; border:none; outline:none; border-radius:30px; font-size:15px; cursor:pointer; display:block; float:left; font-size:14px; text-align:center; text-decoration:none; width:100px;  margin-left:30px; color:#fff; letter-spacing:1px; background:#3385ff; " onclick="window.open(\''+ url_baidu + '\')" title="使用百度搜索引擎检索该关键词">百度一下</button></div>');
+            $(".RNNXgb:first").append('<div style="display:inline-block; height:100%; width:0px; box-sizing: border-box; border-radius:10px;"><button id="google++" type="button" style="height:100%; width:100%; border:none; outline:none; border-radius:10px; font-size:15px; cursor:pointer; display:block; float:left; font-size:14px; text-align:center; text-decoration:none; width:100px;  margin-left:10px; color:#fff; letter-spacing:1px; background:#3385ff; " onclick="window.open(\''+ url_baidu + '\')" title="使用百度搜索引擎检索该关键词">百度一下</button></div>');
             $(".gLFyf.gsfi:first").change(function(){
                 var url_baidu_new = "https://www.baidu.com/s?wd=" + encodeURIComponent($(".gLFyf.gsfi:first").val()) + "&from=TsingScript";
                 $("#google++").attr('onclick','window.open("'+ url_baidu_new + '")');

@@ -4,7 +4,8 @@
 // @description    只改变网页中背景的白色和接近白色的为淡灰色。
 // @version        1.0
 // @include        http*
-
+// @downloadURL  https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%8A%A4%E7%9C%BC%E8%84%9A%E6%9C%AC.js
+// @updateURL    https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%8A%A4%E7%9C%BC%E8%84%9A%E6%9C%AC.js
 // @include        ftp
 // @exclude        
 // ==/UserScript==

@@ -8,9 +8,9 @@
 // @description       彩云小译 提供中英对照翻译
 // @author            yandd <https://github.com/yandd>
 // @supportURL        https://github.com/yandd
-// @match             http*://www.ncbi.nlm.nih.gov/*
-// @match        http*://*.aasv.org/*
-// @match        http*://*.researchgate.net/*
+// @match             https://www.ncbi.nlm.nih.gov/*
+// @match        https://*.aasv.org/*
+// @match        https://*.researchgate.net/*
 // @match        https://*.github.com/*
 // @match        http://*.acm.org/*
 // @match        http://*.acs.org/*

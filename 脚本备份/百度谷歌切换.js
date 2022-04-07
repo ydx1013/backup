@@ -1,79 +1,142 @@
 // ==UserScript==
 // @name         Baidu++
-// @description  给百度搜索Google搜索进行相同关键词的检索；在google搜索结果页添加百度搜索按钮，一键跳转到百度搜索进行相同关键词的检索。支持去除百度结果页面的广告和右边栏。
-// @icon         https://www.baidu.com/cache/icon/favicon.ico
-// @namespace    https://greasyfork.org/zh-CN/scripts/396960
-// @license	 MIT 
-// @version      1.7.1
-// @author       ddrwin
-// @run-at       document-start
-// @include      http*://*baidu.com/s*
-// @include      http*://*baidu.com/baidu*
-// @include      *://www.google.com/search?*
-// @include      *://www.google.com.*/search?*
-// @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
-// @grant        GM_addStyle
-// @grant        GM_getResourceText
+// @namespace     http://tampermonkey.net/
+// @author        ZeroCode
+// @version       0.2.2
+// @description   基于Google_baidu_Switcher_(ALL_in_One)修改，分别在百度和google的搜索结果页面增加搜索跳转按钮。
+// @include       https://www.google.*
+// @include       http://www.google.*
+// @include       https://ipv6.google.*
+// @include       http://ipv6.google.*
+// @include       http://www.baidu.com/*
+// @include       https://www.baidu.com/*
+// @include       http://image.baidu.com/*
+// @include       https://image.baidu.com/*
 // @downloadURL  https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E5%88%87%E6%8D%A2.js
 // @updateURL    https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E5%88%87%E6%8D%A2.js
-// @grant        GM_getValue
-// @grant        GM_deleteValue
-// @grant        GM_registerMenuCommand
-// @note         2020.2.22 V1.0 在百度搜索的结果页加入磁力、种子、网盘、Google搜索按钮；
-// @note         2020.2.23 V1.1 在google搜索的结果页加入百度搜索按钮；
-// @note         2020.2.25 V1.2 增加软件搜索、增加头条搜索、哔哩哔哩搜索；
-// @note         2020.2.26 V1.3 重写代码，将种子搜索、磁力搜索集成到网盘搜索中、同时软件搜索增加多个搜索网址；
-// @note         2020.2.27 V1.4 今日头条和bilibili集成到头条搜索中，知乎和CSDN集成到问答搜索中；
-// @note         2020.5.30 V1.5 网盘搜索增加新的搜索结果，软件搜索增加大眼仔、微当、小众软件，问答搜索增加微信搜索、百度知道并整合哔哩哔哩，头条搜索增加移动端搜索；
-// @note         2021.3.4 V1.6 网盘搜索增加新的搜索结果，软件搜索去除失效链接，问答搜索改成破解下载搜索、问答搜索里增加今日头条搜索；
-// @note         2022.1.23 V1.7 合并软件搜索和破解搜索，问答搜索增加bilibili和驱动之家，增加行研搜索，去除失效的搜索入口；
+// @require       https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js
+// @note          18.12.30-V0.2.2 谷歌搜索按钮优化。
+// @note          18.12.11-V0.2.1 搜索按钮显示效果调整。
+// @note          18.12.11-V0.2.0 增加百度图片搜索与谷歌图片搜索之间跳转功能。
+// @note          18.01.02-V0.1.2 微调百度页面中google搜索按钮，兼容AC-Baidu。
+// @note          17.08.22-V0.1.1 微调Google中百度搜索按钮显示效果。
+// @note          16.12.23-V0.1.0
+
 // ==/UserScript==
-
 (function() {
-    'use strict';
-
-    var hostname = window.location.hostname;
-
-    if(hostname.match(RegExp(/baidu.com/))){
-        // 去除一些无用的百度广告
-        var style_tag_baidu = document.createElement('style');
-        style_tag_baidu.innerHTML = '#content_right{display:none;}'; // 移除百度右侧栏
-        document.head.appendChild(style_tag_baidu);
-        document.addEventListener ("DOMContentLoaded",show_button_baidu); 
-        $('#content_left>div').has('span:contains("广告")').remove();// 去除常规广告
-        
-        // 在百度结果首页开始添加按钮
-        function show_button_baidu () {
-		
-            //添加Google搜索按钮
-            $('.s_btn_wr,#s_btn_wr').after('<input type="button" id="google" value="Google搜索" class="btn self-btn bg" style="float:right; font-size:17px; text-align:center; text-decoration:none; width:112px; height:40px; line-height:41px; margin-left:5px;-webkit-appearance:none;-webkit-border-radius:0;border: 0;color:#fff;background:#4e6ef2;border-radius: 10px;outline:medium;" onmouseover="this.style.background=\'#4e6ef2\'" onmouseout="this.style.background=\'#4e6ef2\'">')
-            $("#google").click(function(){
-            window.open('https://www.google.com/search?&q=' + encodeURIComponent($('#kw').val()));            
-            }) // 结束         
-                           
-
-        
-         
-		
-            function del_delayed_ads(){
-                $('.c-container').has('.f13>span:contains("广告")').remove();
+  'use strict';
+  if(location.host.indexOf("baidu.com") > -1){
+    if (getUrlParam("wd").length > 0 || getUrlParam("word").length > 0 || window.location.href.lastIndexOf("/s?") > 0) {
+      baidu2google();
+    }
+    //2018/11/07 F9y4ng 检测从baidu首页进入的搜索（修正自动提交的Bug）
+    if (/^http(s)?:\/\/(www\.)?baidu\.com\/$/ig.test(window.location.href)) {
+      $("#kw").on("blur", function () {
+        if ($('#kw').val().length > 0) {
+          setTimeout(function () {
+            if ($('#google_search').length < 1 && getUrlParam("wd").length > 0) {
+              baidu2hgoogle();
             }
-            setTimeout(function () { del_delayed_ads(); }, 2100); // 去除顽固性的延迟加载广告，一般延迟2秒左右。例如搜索“淘宝”，当页面加载完毕之后在搜索结果最前或最后会再插入一个广告。
-            }
+          }, 600);
+        }
+      });
+    }
+  }
+  else if(location.host.indexOf(".google.") > -1){
+    if (window.location.hash.lastIndexOf("q=") > 0 || window.location.search.lastIndexOf("q=") > 0) {
+      google2baidu();
+    }
+    //2018/11/07 F9y4ng GOOGLE首页自动提交搜索修正
+    if (/^http(s)?:\/\/(www\.)?google\.\w+(\.\w+)?\/$/ig.test(window.location.href) || getUrlParam("q") === "") {
+      var gfm = $('input[name="q"]');
+      if ("undefined" == typeof (gfm)) {
+        gfm = $("input[role='combobox']");
+      }
+      gfm.off('click').on({
+        blur: function () {
+          if (gfm.val().length > 0) {
+            $("form").submit();
+          }
+        }
+      });
+    }
+    var ua = myBrowser();
+    if (ua == "FF" || ua == "Edge") {
+      $('#bdyxwz').css('margin-top', '10px');
+      $('#bdyxss').css('margin', '12px 2px 0 4px');
+    }
+    else {
+      $('#bdyxwz').css('margin-top', '0px');
+      $('#bdyxss').css('margin', '2px 2px 0 4px');
+    }
+    var elm = $('#bdyx');
+    var startPos = $(elm).offset().top;
+    $.event.add(window, "scroll", function () {
+      var p = $(window).scrollTop();
+      $(elm).css('height', ((p) > startPos) ? '37px' : '49px');
+      if (ua == "FF" || ua == "Edge") {
+        $('#bdyxwz').css('margin-top', ((p) > startPos) ? '5px' : '10px');
+        $('#bdyxss').css('margin', ((p) > startPos) ? '7px 2px 0 4px' : '12px 2px 0 4px');
+      }
+    });
+  }
+  function baidu2google() {
+    $('.s_btn_wr').after('<div class="bg s_btn_wr" style="margin-left:10px"><input type="button" id="google_search" value="Google一下" class="bg s_btn" ></div>');
+    var s_url = "https://www.google.com/search?newwindow=1&hl=zh-CN&source=hp";
+    if(getUrlParam("tn") == "baiduimage") {
+      s_url = s_url + "&tbm=isch";
+    }
+    $('#google_search').on({
+      click: function () {
+        window.open(s_url + "&q=" + encodeURIComponent($('#kw').val()));
+        return false;
+      }
+    });
+    baidu_resize();
+    $(window).on("resize", function(){
+      baidu_resize();
+    });
+  }
+  function baidu_resize() {
+    if($("#result_logo").css("left") != "auto"){
+        $(".s_ipt_wr").width($(".s_ipt_wr").width() - 70);
+    }
+  }
+  function google2baidu(){
+    $('#tsf').prepend('<div id="sfdiv_bd" style="display:inline-block;position:relative;height:0px;width:110px;right:-115px;\
+top:0px;float:right;"><button id="bdyx" class="lsbb kpbb" style="width:120px;background:#3385ff;color:#fff;height:45px;margin-left:25px;cursor:pointer;\
+border-radius: 10px;border: 1px solid #3385ff;box-shadow: none;" type="button"><span id="bdyxwz" style="font-size:16px;">百度一下</span></button></div>');
+    var s_url = "https://www.google.com/search?newwindow=1&hl=zh-CN&source=hp";
+    $('#sfdiv_bd').off("click").on("click", function(){
+      var kw = $('input[name="q"]').val();
+      //获取属性标签容错
+      if ("undefined" == typeof (kw)) {
+        kw = getUrlParam("q");
+      }
+      var s_url = "https://www.baidu.com/s?ie=utf-8&rqlang=cn";
+      if(getUrlParam("tbm") == "isch") s_url = "https://image.baidu.com/search/index?tn=baiduimage&ie=utf-8&rqlang=cn";
+      window.open(s_url + "&wd=" + encodeURIComponent(kw));
+      return false;
+    });
+  }
 
-            } // 百度上添加其他搜索结束
-
-    else if(hostname.match(RegExp(/google.com/))){
-        //Google上添加百度搜索
-        document.addEventListener ("DOMContentLoaded", show_button_google);
-        function show_button_google () {
-            var url_baidu = "https://www.baidu.com/s?wd=" + encodeURIComponent($(".gLFyf.gsfi:first").val()) + "&from=TsingScript";
-            $(".RNNXgb:first").append('<div style="display:inline-block; height:100%; width:0px; box-sizing: border-box; border-radius:10px;"><button id="google++" type="button" style="height:100%; width:100%; border:none; outline:none; border-radius:10px; font-size:15px; cursor:pointer; display:block; float:left; font-size:14px; text-align:center; text-decoration:none; width:100px;  margin-left:10px; color:#fff; letter-spacing:1px; background:#3385ff; " onclick="window.open(\''+ url_baidu + '\')" title="使用百度搜索引擎检索该关键词">百度一下</button></div>');
-            $(".gLFyf.gsfi:first").change(function(){
-                var url_baidu_new = "https://www.baidu.com/s?wd=" + encodeURIComponent($(".gLFyf.gsfi:first").val()) + "&from=TsingScript";
-                $("#google++").attr('onclick','window.open("'+ url_baidu_new + '")');
-             });
-           }
-          } // 结束
-
+  function getUrlParam(name) {
+    //构造一个含有目标参数的正则表达式对象
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    //匹配目标参数
+    var r = window.location.search.substr(1).match(reg);
+    //返回参数值
+    if (r != null) return unescape(r[2]);
+    return "";
+  }
 })();
+
+function myBrowser() {
+  var userAgent = navigator.userAgent;
+  if (userAgent.indexOf("Firefox") > -1) {
+    return "FF";
+  }
+  if (userAgent.indexOf("Edge") > -1) {
+    return "Edge";
+  }
+}

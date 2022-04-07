@@ -2,11 +2,13 @@
 // @name         百度百科添加维基百科
 // @version      1.05
 // @description  在百度百科中添加跳转到维基百科和互动百科
-// @match        *://baike.baidu.com/*
+// @match        https://baike.baidu.com/*
+// @updateURL        https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91.js
+// @downloadURL        https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91.js
 // @grant        none
 // @author       sunforbeeing
 // @require      https://code.jquery.com/jquery-3.1.1.min.js
-// @namespace    https://greasyfork.org/users/20689
+
 // ==/UserScript==
 
 (function() {
@@ -28,9 +30,10 @@
     $('.J-declare').remove();//分享
     $('.tashuo_right').remove();//分享
     $('.tashuo_bottom').remove();//分享
-    $('.tashuo-right').remove();//分享
+    $('.professional-header').remove();//分享
 
-
+    $('.authEdit').remove();//分享
+    $('.tashuo_right').remove();//分享
 	$('.lemmaWgt-promotion-vbaike').remove(); //V百科
 	$('.wgt-footer-main .content').remove();//页面底部
 	$('.after-content').remove();//页面底部

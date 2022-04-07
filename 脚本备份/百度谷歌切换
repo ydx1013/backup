@@ -1,0 +1,79 @@
+// ==UserScript==
+// @name         Baidu++
+// @description  给百度搜索Google搜索进行相同关键词的检索；在google搜索结果页添加百度搜索按钮，一键跳转到百度搜索进行相同关键词的检索。支持去除百度结果页面的广告和右边栏。
+// @icon         https://www.baidu.com/cache/icon/favicon.ico
+// @namespace    https://greasyfork.org/zh-CN/scripts/396960
+// @license	 MIT 
+// @version      1.7.1
+// @author       ddrwin
+// @run-at       document-start
+// @include      http*://*baidu.com/s*
+// @include      http*://*baidu.com/baidu*
+// @include      *://www.google.com/search?*
+// @include      *://www.google.com.*/search?*
+// @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
+// @grant        GM_addStyle
+// @grant        GM_getResourceText
+// @downloadURL        GM_getResourceText
+// @updateURL        GM_setValue
+// @grant        GM_getValue
+// @grant        GM_deleteValue
+// @grant        GM_registerMenuCommand
+// @note         2020.2.22 V1.0 在百度搜索的结果页加入磁力、种子、网盘、Google搜索按钮；
+// @note         2020.2.23 V1.1 在google搜索的结果页加入百度搜索按钮；
+// @note         2020.2.25 V1.2 增加软件搜索、增加头条搜索、哔哩哔哩搜索；
+// @note         2020.2.26 V1.3 重写代码，将种子搜索、磁力搜索集成到网盘搜索中、同时软件搜索增加多个搜索网址；
+// @note         2020.2.27 V1.4 今日头条和bilibili集成到头条搜索中，知乎和CSDN集成到问答搜索中；
+// @note         2020.5.30 V1.5 网盘搜索增加新的搜索结果，软件搜索增加大眼仔、微当、小众软件，问答搜索增加微信搜索、百度知道并整合哔哩哔哩，头条搜索增加移动端搜索；
+// @note         2021.3.4 V1.6 网盘搜索增加新的搜索结果，软件搜索去除失效链接，问答搜索改成破解下载搜索、问答搜索里增加今日头条搜索；
+// @note         2022.1.23 V1.7 合并软件搜索和破解搜索，问答搜索增加bilibili和驱动之家，增加行研搜索，去除失效的搜索入口；
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    var hostname = window.location.hostname;
+
+    if(hostname.match(RegExp(/baidu.com/))){
+        // 去除一些无用的百度广告
+        var style_tag_baidu = document.createElement('style');
+        style_tag_baidu.innerHTML = '#content_right{display:none;}'; // 移除百度右侧栏
+        document.head.appendChild(style_tag_baidu);
+        document.addEventListener ("DOMContentLoaded",show_button_baidu); 
+        $('#content_left>div').has('span:contains("广告")').remove();// 去除常规广告
+        
+        // 在百度结果首页开始添加按钮
+        function show_button_baidu () {
+		
+            //添加Google搜索按钮
+            $('.s_btn_wr,#s_btn_wr').after('<input type="button" id="google" value="Google搜索" class="btn self-btn bg" style="float:right; font-size:17px; text-align:center; text-decoration:none; width:112px; height:40px; line-height:41px; margin-left:5px;-webkit-appearance:none;-webkit-border-radius:0;border: 0;color:#fff;letter-spacing:1px;background:#4e6ef2;border-radius: 10px;outline:medium;" onmouseover="this.style.background=\'#4e6ef2\'" onmouseout="this.style.background=\'#4e6ef2\'">')
+            $("#google").click(function(){
+            window.open('https://www.google.com/search?&q=' + encodeURIComponent($('#kw').val()));            
+            }) // 结束         
+                           
+
+        
+         
+		
+            function del_delayed_ads(){
+                $('.c-container').has('.f13>span:contains("广告")').remove();
+            }
+            setTimeout(function () { del_delayed_ads(); }, 2100); // 去除顽固性的延迟加载广告，一般延迟2秒左右。例如搜索“淘宝”，当页面加载完毕之后在搜索结果最前或最后会再插入一个广告。
+            }
+
+            } // 百度上添加其他搜索结束
+
+    else if(hostname.match(RegExp(/google.com/))){
+        //Google上添加百度搜索
+        document.addEventListener ("DOMContentLoaded", show_button_google);
+        function show_button_google () {
+            var url_baidu = "https://www.baidu.com/s?wd=" + encodeURIComponent($(".gLFyf.gsfi:first").val()) + "&from=TsingScript";
+            $(".RNNXgb:first").append('<div style="display:inline-block; height:100%; width:0px; box-sizing: border-box; border-radius:10px;"><button id="google++" type="button" style="height:100%; width:100%; border:none; outline:none; border-radius:30px; font-size:15px; cursor:pointer; display:block; float:left; font-size:14px; text-align:center; text-decoration:none; width:100px;  margin-left:30px; color:#fff; letter-spacing:1px; background:#3385ff; " onclick="window.open(\''+ url_baidu + '\')" title="使用百度搜索引擎检索该关键词">百度一下</button></div>');
+            $(".gLFyf.gsfi:first").change(function(){
+                var url_baidu_new = "https://www.baidu.com/s?wd=" + encodeURIComponent($(".gLFyf.gsfi:first").val()) + "&from=TsingScript";
+                $("#google++").attr('onclick','window.open("'+ url_baidu_new + '")');
+             });
+           }
+          } // 结束
+
+})();

@@ -21,6 +21,8 @@
 // @match        *://*.alipay.com/*
 // @match        *://*.xiami.com/*
 // @match        *://passport.csdn.net/*
+// @updateURL    https://github.com/ydx1013/backup/raw/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%8B%92%E7%BB%9D%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%99%BB%E5%BD%95.js
+// @downloadURL    https://github.com/ydx1013/backup/raw/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%8B%92%E7%BB%9D%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%99%BB%E5%BD%95.js
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==

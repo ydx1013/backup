@@ -14,8 +14,8 @@
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
-// @downloadURL        GM_getResourceText
-// @updateURL        GM_setValue
+// @downloadURL  https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E5%88%87%E6%8D%A2.js
+// @updateURL    https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E7%99%BE%E5%BA%A6%E8%B0%B7%E6%AD%8C%E5%88%87%E6%8D%A2.js
 // @grant        GM_getValue
 // @grant        GM_deleteValue
 // @grant        GM_registerMenuCommand

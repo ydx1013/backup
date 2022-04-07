@@ -1,6 +1,3 @@
-
-
-
 // ==UserScript==
 // @name              彩云小译
 // @namespace         https://github.com/yandd

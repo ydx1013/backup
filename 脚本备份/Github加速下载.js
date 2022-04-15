@@ -16,8 +16,8 @@
 // @grant        GM_getValue
 // @grant        GM_setValue
 // @grant        GM_registerMenuCommand
-// @updateURL    https://github.com/ydx1013/backup/raw/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%8B%92%E7%BB%9D%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%99%BB%E5%BD%95.js
-// @downloadURL    https://github.com/ydx1013/backup/raw/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E6%8B%92%E7%BB%9D%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%99%BB%E5%BD%95.js
+// @updateURL    https://raw.githubusercontent.com/ydx1013/backup/master/脚本备份/Github加速下载.js
+// @downloadURL    https://raw.githubusercontent.com/ydx1013/backup/master/脚本备份/Github加速下载.js
 // @grant        GM_openInTab
 // ==/UserScript==
 

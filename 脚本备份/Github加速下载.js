@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Github 镜像访问，加速下载
+// @name         Github加速
 // @icon         https://github.githubassets.com/favicon.ico
 // @namespace    https://github.com/jadezi/github-accelerator/
 // @version      2.0.4

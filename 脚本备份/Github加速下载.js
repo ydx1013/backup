@@ -6,8 +6,7 @@
 // @description  GitHub 镜像，github 加速
 // @author       jadezi、wuyuehui
 // @license      GPL License
-// @match        *://github.com/*
-// @match        *://hub.fastgit.xyz/*
+// @match        https://github.com/*
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @resource     customStyles https://gitee.com/jadezi/github-accelerator-css/raw/master/index.css
 // @grant        GM_addStyle
@@ -23,16 +22,12 @@
 (function () {
     const clone_url_list = [
         {
-            name: '地址1',
-            url: 'https://hub.fastgit.xyz',
+            name: '自建下载（推荐）',
+            url: 'https://1.ydx.workers.dev',
         },
         {
-            name: '地址2',
-            url: 'https://hub.0z.gs',
-        },
-        {
-            name: '地址3',
-            url: 'https://api.mtr.pub',
+            name: 'ghpoxy下载',
+            url: 'https://mirror.ghproxy.com',
         },
     ]
 

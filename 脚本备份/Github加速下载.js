@@ -11,7 +11,6 @@
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
 // @resource     customStyles https://gitee.com/jadezi/github-accelerator-css/raw/master/index.css
 // @grant        GM_addStyle
-// @grant        GM_setClipboard
 // @grant        GM_getResourceText
 // @grant        GM_getValue
 // @grant        GM_setValue

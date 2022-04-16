@@ -23,11 +23,11 @@
     const clone_url_list = [
         {
             name: '自建下载（推荐）',
-            url: 'https://1.ydx.workers.dev',
+            url: 'https://1.ydx.workers.dev/https://github.com',
         },
         {
             name: 'ghpoxy下载',
-            url: 'https://mirror.ghproxy.com',
+            url: 'https://mirror.ghproxy.com/https://github.com',
         },
     ]
 
@@ -160,7 +160,7 @@
 
         const get_download_template = (mirrorItem, index) => {
             const { quick_look_url } = mirrorItem
-            let download_url = quick_look_url + "https://github.com/archive/master.zip";
+            let download_url = quick_look_url + "/archive/master.zip";
             return `
             <li class="Box-row Box-row--hover-gray p-3 mt-0">
                 <a class="d-flex flex-items-center color-fg-default text-bold no-underline" href=${download_url}>

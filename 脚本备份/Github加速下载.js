@@ -8,7 +8,6 @@
 // @license      GPL License
 // @match        https://github.com/*
 // @require      https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js
-// @resource     customStyles https://gitee.com/jadezi/github-accelerator-css/raw/master/index.css
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
 // @grant        GM_getValue
@@ -224,8 +223,50 @@
     }
 
     // 设置自定义样式
-    GM_addStyle(GM_getResourceText("customStyles"));
-
+GM_addStyle(`    // 设置自定义样式
+    /* 面板样式 */
+ .mirror-panel {
+   margin-bottom: 1rem;
+}
+/* 卡片样式 */
+ .user-card {
+   position: relative;
+   display: -ms-flexbox;
+   display: flex;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   min-width: 0;
+   word-wrap: break-word;
+   background-color: var(--color-bg-canvas);
+   background-clip: border-box;
+   border: 1px solid var(--color-border-default);
+   border-radius: 0.25rem;
+   margin-top: 0.25rem;
+}
+/* 卡片主题样式 */
+ .user-card-body {
+   -ms-flex: 1 1 auto;
+   flex: 1 1 auto;
+   min-height: 1px;
+   padding: 1rem;
+}
+ .user-alert {
+   position: relative;
+   padding: 0.75rem 1rem;
+   margin-bottom: 1rem;
+   border: 1px solid transparent;
+   border-radius: 0.25rem;
+}
+ .user-alert-warning {
+   color: #856404;
+   background-color: var(--color-scale-yellow-0);
+   border-color: #ffeeba;
+}
+ .user-alert-danger {
+   color: #721c24;
+   background-color: #f8d7da;
+   border-color: #f5c6cb;
+} `)
     // 初始化
     init()
 })();

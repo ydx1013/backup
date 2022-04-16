@@ -164,7 +164,7 @@
             return `
             <li class="Box-row Box-row--hover-gray p-3 mt-0">
                 <a class="d-flex flex-items-center color-fg-default text-bold no-underline" href=${download_url}>
-                    Fast Download ZIP(下载地址${index + 1})
+                    镜像下载(${index + 1})
                 </a>
             </li>
             `

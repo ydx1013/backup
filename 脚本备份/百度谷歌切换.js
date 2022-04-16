@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         Baidu++
+// @name         Baidu Google切换
 // @namespace     http://tampermonkey.net/
 // @author        ZeroCode
 // @version       0.2.2
 // @description   基于Google_baidu_Switcher_(ALL_in_One)修改，分别在百度和google的搜索结果页面增加搜索跳转按钮。
-// @match       https://www.google.*
-// @match       http://www.google.*
-// @match       https://ipv6.google.*
-// @match       http://ipv6.google.*
+// @match       https://www.google.com/*
+// @match       http://www.google.com/*
+// @match       https://ipv6.google.com/*
+// @match       http://ipv6.google.com/*
 // @match       http://www.baidu.com/*
 // @match       https://www.baidu.com/*
 // @match       http://image.baidu.com/*

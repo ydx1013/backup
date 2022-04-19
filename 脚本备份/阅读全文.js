@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         自动展开全文、自动移除万恶弹框
+// @name         自动展开全文、移除弹框
 // @namespace    http://tampermonkey.net/
 // @version      2.17.3
 // @require      https://greasyfork.org/scripts/415668-zmquery3-5-1/code/zmQuery351.js?version=866815

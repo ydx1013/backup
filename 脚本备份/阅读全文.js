@@ -52,7 +52,6 @@
 // @include        *://m.sohu.com/a/*
 // @include        *://*.xz577.com/*
 // @include        *://*.javascriptcn.com/*
-// @include        *://*.baidu.com/*
 // @exclude      https://www.baidu.com/*
 // @exclude      *://tieba.baidu.com/*
 // @exclude      *://pan.baidu.com/*

@@ -28,7 +28,7 @@
 // @match        *://weibo.com/ttarticle/p/show*
 // @match        *://card.weibo.com/article/m/show/id/*
 // @match        *://3g.163.com/*
-// @match        *://*.*.163.com/news/*
+// @match        *://*.163.com/news/*
 // @match        *://*.inews.qq.com/*
 // @match        *://*.36kr.com/p/*
 // @match        *://*.elecfans.com/*

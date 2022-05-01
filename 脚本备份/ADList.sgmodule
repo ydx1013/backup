@@ -826,3 +826,9 @@ DOMAIN-KEYWORD,wlmonitor,REJECT
 DOMAIN-KEYWORD,whalecloud,REJECT
 DOMAIN-KEYWORD,zjtoolbar,REJECT
 DOMAIN-SET,https://cdn.jsdelivr.net/gh/geekdada/surge-list/domain-set/neohosts.txt,REJECT
+DOMAIN-SET,https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/annoyances-filter.txt,REJECT
+DOMAIN-SET,https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/base-filter.txt.txt,REJECT
+DOMAIN-SET,https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/chinese-filter.txt.txt,REJECT
+DOMAIN-SET,https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/tracking-protection-filter.txt,REJECT
+DOMAIN-SET,https://raw.githubusercontent.com/geekdada/surge-list/master/domain-set/social-media-filter.txt,REJECT
+

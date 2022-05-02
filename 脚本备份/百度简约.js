@@ -3,6 +3,8 @@
 // @namespace     http://userstyles.org
 // @description	  BaiduXs - 多栏卡片样式，自动调整 1~4 列。清爽简洁，无广告。
 // @author        moonflame
+// @updateURL        https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E7%99%BE%E5%BA%A6%E7%AE%80%E7%BA%A6.js
+// @downloadURL        https://raw.githubusercontent.com/ydx1013/backup/master/%E8%84%9A%E6%9C%AC%E5%A4%87%E4%BB%BD/%E7%99%BE%E5%BA%A6%E7%AE%80%E7%BA%A6.js
 // @homepage      https://userstyles.org/styles/189519
 // @include       http://baidu.com*
 // @include       http://www.baidu.com*

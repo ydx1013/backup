@@ -14,6 +14,7 @@
 // @include https://dom-pubs.onlinelibrary.wiley.com/doi/*
 // @include https://link.springer.com/*
 // @include https://ieeexplore.ieee.org/*
+// @include      *://sci-hub.*
 // ==/UserScript==
 
 (function () {
@@ -49,6 +50,23 @@
         </div>
         `;
     }
+    function scihub() {
+    'use strict';
+
+    const r = new RegExp(/https?:\/\/sci-hub.[^/]*\//g);
+    let link = window.location.href;
+    $('body').append(`<a style="
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    background: #b22222;
+    text-align: center;
+    font-size: 18px;
+    padding: 8px;
+    color: #fff;
+" href="${link.replace(r, '')}">Back</a>`);
+}
 
     function taylorFrancis() {
         const doi = document
@@ -227,8 +245,8 @@
             return wiley();
         } else if (url.includes("link.springer.com")) {
             return springerLink();
-        } else if (url.includes("ieeexplore.ieee.org")) {
-            return ieeexploreLink();
+        } else if (url.includes("scihub")) {
+            return scihub();
         }
         console.log("No SciHub support there")
     }

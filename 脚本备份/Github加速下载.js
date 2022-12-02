@@ -226,11 +226,7 @@
         GM_setValue('depthVisible', !currentDepthVisible)
     }
 
-    // 注册菜单
-    GM_registerMenuCommand(`【🧲开启 & 关闭 - depth】`, toggleDepthVisible)
-    GM_registerMenuCommand(`【🔔显示 & 隐藏 - 镜像信息面板】`, togglePanelVisible)
-    GM_registerMenuCommand(`【📢意见 & 反馈】`, () => { window.GM_openInTab('https://github.com/jadezi/github-accelerator/issues/new', { active: true, insert: true, setParent: true }); })
-
+  
     // 设置自定义样式
     GM_addStyle(GM_getResourceText("customStyles"));
 

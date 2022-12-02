@@ -21,18 +21,22 @@
 (function () {
     const clone_url_list = [
         {
-            name: '自建下载（推荐）',
-            url: 'https://1.ydx.workers.dev/https://github.com',
+            name: '地址1',
+            url: 'https://hub.fastgit.xyz',
         },
         {
-            name: 'ghpoxy下载',
-            url: 'https://mirror.ghproxy.com/https://github.com',
+            name: '地址2',
+            url: 'https://hub.0z.gs',
+        },
+        {
+            name: '地址3',
+            url: 'https://api.mtr.pub',
         },
     ]
 
     const download_url = [
-        'https://1.ydx.workers.dev',
-       'https://mirror.ghproxy.com',
+        'https://mirror.ghproxy.com',
+        'https://gh-proxy.du33169.workers.dev',
     ]
 
     function init() {
@@ -163,7 +167,7 @@
             return `
             <li class="Box-row Box-row--hover-gray p-3 mt-0">
                 <a class="d-flex flex-items-center color-fg-default text-bold no-underline" href=${download_url}>
-                    镜像下载(${index + 1})
+                    Fast Download ZIP(下载地址${index + 1})
                 </a>
             </li>
             `
@@ -174,7 +178,7 @@
         })
 
         download_template_list.forEach(template => {
-            $(".dropdown-menu.dropdown-menu-sw.p-0 ul").append(template)
+            $("#local-panel ul").append(template)
         });
     }
 
@@ -188,8 +192,8 @@
                 const download_url2 = `${download_url[1]}/${href}`
                 let download_template = `
                 <div class="mt-1" style="display: flex; float: right;position: relative;top: -10px;left: 10px;">
-                    <a class="btn btn-sm mr-1" href="${download_url1}" rel="nofollow">自建下载（推荐）</a>
-                    <a class="btn btn-sm" href="${download_url2}" rel="nofollow">快速下载</a>
+                    <a class="btn btn-sm mr-1" href="${download_url1}" rel="nofollow">快速下载1</a>
+                    <a class="btn btn-sm" href="${download_url2}" rel="nofollow">快速下载2</a>
                 </div>
                 `
                 li_obj.children('span.float-right').before(download_template);
@@ -222,51 +226,14 @@
         GM_setValue('depthVisible', !currentDepthVisible)
     }
 
+    // 注册菜单
+    GM_registerMenuCommand(`【🧲开启 & 关闭 - depth】`, toggleDepthVisible)
+    GM_registerMenuCommand(`【🔔显示 & 隐藏 - 镜像信息面板】`, togglePanelVisible)
+    GM_registerMenuCommand(`【📢意见 & 反馈】`, () => { window.GM_openInTab('https://github.com/jadezi/github-accelerator/issues/new', { active: true, insert: true, setParent: true }); })
+
     // 设置自定义样式
-GM_addStyle(`    // 设置自定义样式
-    /* 面板样式 */
- .mirror-panel {
-   margin-bottom: 1rem;
-}
-/* 卡片样式 */
- .user-card {
-   position: relative;
-   display: -ms-flexbox;
-   display: flex;
-   -ms-flex-direction: column;
-   flex-direction: column;
-   min-width: 0;
-   word-wrap: break-word;
-   background-color: var(--color-bg-canvas);
-   background-clip: border-box;
-   border: 1px solid var(--color-border-default);
-   border-radius: 0.25rem;
-   margin-top: 0.25rem;
-}
-/* 卡片主题样式 */
- .user-card-body {
-   -ms-flex: 1 1 auto;
-   flex: 1 1 auto;
-   min-height: 1px;
-   padding: 1rem;
-}
- .user-alert {
-   position: relative;
-   padding: 0.75rem 1rem;
-   margin-bottom: 1rem;
-   border: 1px solid transparent;
-   border-radius: 0.25rem;
-}
- .user-alert-warning {
-   color: #856404;
-   background-color: var(--color-scale-yellow-0);
-   border-color: #ffeeba;
-}
- .user-alert-danger {
-   color: #721c24;
-   background-color: #f8d7da;
-   border-color: #f5c6cb;
-} `)
+    GM_addStyle(GM_getResourceText("customStyles"));
+
     // 初始化
     init()
 })();
